@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.result {
+  max-width: 90vw;
+  word-wrap: break-word;
+}
+
+.table {
+  min-width: 912px;
+}
+
+.table td {
+  display: inline-block;
+  white-space: nowrap;
+  width: 190px !important;
+  overflow: hidden;
+}
+.table th {
+  display: inline-block;
+  white-space: nowrap;
+  width: 190px !important;
+  overflow: hidden;
+}
+
+nav {
+  height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 180px;
+}
+nav a {
+  color: black !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+.is_active {
+  color: #61dafb !important;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

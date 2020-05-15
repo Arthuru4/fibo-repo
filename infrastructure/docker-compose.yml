@@ -1,0 +1,42 @@
+version: "2"
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - ./.data/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+    ports:
+      - 3306:3306
+
+  server:
+    build: ./../fibo-back/
+    ports:
+      - "3002:3002"
+    links:
+      - mysql:mysql
+    restart: always
+    depends_on:
+      - mysql
+
+  client:
+    build: ./../fibo-front/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./../fibo-front/src:/usr/src/app/src
+      - ./../fibo-front/public:/usr/src/app/public
+    stdin_open: true
+    depends_on:
+      - server
+    command: npm start
+
+  test:
+    build:
+      context: ./../fibo-front/
+    environment:
+      - CI=true
+    depends_on:
+      - client
+    command: npm test

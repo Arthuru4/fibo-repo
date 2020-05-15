@@ -1,0 +1,5 @@
+fibo-back/node_modules
+fibo-front/node_modules
+fibo-back/package-lock.json
+fibo-front/package-lock.json
+.idea
